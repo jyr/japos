@@ -1,0 +1,25 @@
+{% load i18n %}
+	{% block content-box-content %}
+			<form action="{% url coins.views.get id %}" method="post" id="submit" title="Edit">
+				
+				<fieldset> <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
+					<p>
+						{{ form.initials.errors }}
+						<b>{% trans "Initials:" %}</b> {{ form.initials }} 
+						<b>{% trans "Value:" %}</b> {{ form.value }}
+					</p>
+					<br />
+					<p>
+					<b>{% trans "Currency:" %}</b> {{ form.currency }}
+						{{ form.enabled }} {% trans "Enabled" %} {{ form.default }} {% trans "Default" %}
+					</p>
+					<p>
+						<input class="button" type="submit" value="Submit" />
+					</p>
+					
+				</fieldset>
+				
+				<div class="clear"></div><!-- End .clear -->
+				
+			</form>
+	{% endblock %}

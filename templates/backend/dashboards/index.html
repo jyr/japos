@@ -1,0 +1,51 @@
+{% extends "backend/base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Dashboards" %}{% endblock %}
+
+{% block content %}
+<ul class="shortcut-buttons-set">
+	
+	<li><a class="shortcut-button openings" href="/backend/openings/"><span class="png_bg">
+		{% trans "Openings" %}
+	</span></a></li>
+	<li><a class="shortcut-button sales" href="/backend/sales/"><span class="png_bg">
+		{% trans "Sales" %}
+	</span></a></li>
+	<li><a class="shortcut-button cancellations" href="/backend/cancellations/"><span class="png_bg">
+		{% trans "Cancellations" %}
+	</span></a></li>
+	<li><a class="shortcut-button coins" href="/backend/coins/"><span class="png_bg">
+		{% trans "Coins" %}
+	</span></a></li>
+	<li><a class="shortcut-button crews" href="/backend/crews"><span class="png_bg">
+		{% trans "Crews" %}
+	</span></a></li>
+	<li><a class="shortcut-button discounts" href="/backend/discounts/"><span class="png_bg">
+		{% trans "Discounts" %}
+	</span></a></li>
+	<li><a class="shortcut-button goods" href="/backend/goods/"><span class="png_bg">
+		{% trans "Goods" %}
+	</span></a></li>
+	<li><a class="shortcut-button paymentforms" href="/backend/paymentforms/"><span class="png_bg">
+		{% trans "Payment Forms" %}
+	</span></a></li>
+	<li><a class="shortcut-button payments" href="/backend/payments/"><span class="png_bg">
+		{% trans "Payments" %}
+	</span></a></li>
+	<li><a class="shortcut-button stockrooms" href="/backend/stockrooms/"><span class="png_bg">
+		{% trans "Stock Rooms" %}
+	</span></a></li>
+	<li><a class="shortcut-button taxes" href="/backend/taxes/"><span class="png_bg">
+		{% trans "Taxes" %}
+	</span></a></li>
+	<li><a class="shortcut-button transfers" href="/backend/transfers"><span class="png_bg">
+		{% trans "Transfers" %}
+	</span></a></li>	
+	<li><a class="shortcut-button pos" href="/backend/pos"><span class="png_bg">
+		{% trans "Pos" %}
+	</span></a></li>
+	<li><a class="shortcut-button logout" href="/backend/logout"><span class="png_bg">
+		{% trans "Logout" %}
+	</span></a></li>
+</ul><!-- End .shortcut-buttons-set -->
+{% endblock %}

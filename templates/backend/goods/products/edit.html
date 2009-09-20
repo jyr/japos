@@ -1,0 +1,46 @@
+{% load i18n %}
+	{% block content-box-content %}
+	<script type="text/javascript">
+		$(document).ready(function(){
+		    $('.add-modal').one('click',function(){
+		        module = $(this).attr('rel');
+		        action = $(this).attr('title');
+		        $('.facebox').one(jQuery.facebox({'ajax':'/backend/'+module+'/add/'}));
+	            return false;
+		    });
+		});
+	</script>
+		<div class="tab-content" id="tab2">
+			<span><div align="right"><input type="button" value="Close" class="button exit" id="some_name" rel="goods"></div><h3>{% trans "Add Product" %}</h3></span><br />
+			<form action="/backend/goods/edit/{{object.id}}" method="post" id="submit" title="{% trans "Add" %}" rel="goods">
+				<fieldset> <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
+					<p>
+						<b>{% trans "SKU:" %}</b> {{ form.sku }}
+						<b>{% trans "Barcode:" %}</b> {{ form.barcode }} 
+						<b>{% trans "Name:" %}</b> {{ form.name }}
+					</p>
+					<p>
+						<b>{% trans "Stock:" %}</b> {{ form.stock }} 
+						<b>{% trans "Group:" %}</b> {{ form.group }} 
+						<a rel="goods/groups" title="edit"  class="add-modal" href="javascript:void(0);">
+							<img src="/media/resources/images/icons/plus.png" alt="{% trans "Add" %}" /></a>
+						<b>{% trans "Discount:" %}</b> {{ form.discount }}
+						<a rel="discounts" title="edit"  class="add-modal" href="javascript:void(0);">
+							<img src="/media/resources/images/icons/plus.png" alt="{% trans "Add" %}" /></a>
+					</p>
+					<p>
+						<b>{% trans "Description:" %}</b> {{ form.description }}
+					</p>
+					<p>
+						<b>{% trans "Purchase Price:" %}</b> {{ form.purchase_price }}
+						<span align="right">
+							<input class="button" type="submit" value="Submit" />	
+						</span>
+					</p>
+				</fieldset>
+				
+				<div class="clear"></div><!-- End .clear -->
+				
+			</form>
+		</div> <!-- End #tab2 -->
+	{% endblock %}
