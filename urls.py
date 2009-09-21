@@ -1,23 +1,22 @@
 from django.conf.urls.defaults import *
+from django.contrib.auth.views import login
+from django.views.generic.simple import redirect_to
 
-# Uncomment the next two lines to enable the admin:
+from japos.accounts.views import logout
+
 from django.conf import settings
 from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Example:
-    # (r'^japos/', include('japos.foo.urls')),
-
-    # Uncomment the admin/doc line below and add 'django.contrib.admindocs' 
-    # to INSTALLED_APPS to enable admin documentation:
-    # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
     (r'^admin/(.*)', admin.site.root),
 )
 
 urlpatterns +=  patterns('',
+    (r'^$', redirect_to, {'url':'/backend/dashboards/'}),
+    (r'^accounts/$', redirect_to, {'url': '/accounts/login/'}),
+    (r'^accounts/login/$', login, {'template_name': 'login.html'}),
+    (r'^accounts/logout/$', logout),
     (r'^backend/openings/', include('japos.openings.urls')),
     (r'^backend/cancellations/', include('japos.cancellations.urls')),
     (r'^backend/coins/', include('japos.coins.urls')),

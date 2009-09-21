@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render_to_response
 from django.db.models import Q
 from django.core.paginator import Paginator
@@ -7,10 +8,12 @@ from japos.base import Headers, JsonResponse
 
 templates = 'backend/paymentforms/'
 
+@login_required
 def index(request):
     data = "Payment Forms"
     return Headers(render_to_response(templates+'index.html', {'data': data}))
 
+@login_required
 def list(request):
     search = request.POST.get('search')
     if(search):
@@ -35,10 +38,10 @@ def list(request):
 
     return Headers(render_to_response(templates+'list.html', {'data': pagination, 'range': paginator}))
 
+@login_required
 def delete(request, paymentform_id):
     data = PaymentForm.objects.get(pk = paymentform_id)
     data.delete()
 
     values = {'title': 'Success: Delete', 'text': 'PaymentForms '+ paymentform_id + ' deleted', 'image': '/media/img/backend/Symbol-delete.png'}
     return JsonResponse(values)
-

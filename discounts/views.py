@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render_to_response
 from django.core.paginator import Paginator
 from django.db.models import Q
@@ -7,10 +8,12 @@ from japos.discounts.models import Discount
 
 templates = "backend/discounts/"
 
+@login_required
 def index(request):
     data = "Discounts"
     return Headers(render_to_response(templates+'index.html', {'data': data}))
 
+@login_required
 def list(request):
     search = request.POST.get('search')
     if(search):
@@ -35,6 +38,7 @@ def list(request):
 
     return Headers(render_to_response(templates+'list.html', {'data': pagination, 'range': paginator}))
 
+@login_required
 def delete(request, discount_id):
     data = Discount.objects.get(pk = discount_id)
     data.delete()

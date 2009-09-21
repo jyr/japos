@@ -1,4 +1,5 @@
 #from django.views.decorators.cache import cache_control, never_cache
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render_to_response, get_object_or_404
 from django.core.paginator import Paginator
 from django.db.models import Q
@@ -10,10 +11,12 @@ from forms import MoneyForm
 
 templates = 'backend/coins/'
 
+@login_required
 def index(request):
     data = "Coins"
     return Headers(render_to_response(templates+'index.html',{'data': data}))
 
+@login_required
 def list(request):
     search = request.POST.get('search')
     if(search):
@@ -40,6 +43,7 @@ def list(request):
 
     return Headers(render_to_response(templates+'list.html', {'data': pagination, 'range': paginator}))
 
+@login_required
 def get(request, money_id = None):
     if money_id:
         money = get_object_or_404(Money, id=money_id)
@@ -64,6 +68,7 @@ def get(request, money_id = None):
         else:
             return Headers(render_to_response(templates+html, {'form': form}))
 
+@login_required
 def delete(request, money_id):
     data = Money.objects.get(pk = money_id)
     data.delete()

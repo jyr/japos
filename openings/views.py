@@ -1,15 +1,19 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render_to_response
 from django.core.paginator import Paginator
 from django.db.models import Q
-from japos.openings.models import Opening
 
+from japos.openings.models import Opening
 from japos.base import JsonResponse
+
 data = {}
 
+@login_required
 def index(request):
     data = "Openings"
     return render_to_response('backend/openings/index.html',{'data': data})
-    
+
+@login_required
 def list(request):
     """
         Busca y lista las aperturas
@@ -38,11 +42,13 @@ def list(request):
         pagination = paginator.page(paginator.num_pages)
             
     return render_to_response('backend/openings/list.html', {'data': pagination, 'range': paginator})
-    
+
+@login_required    
 def detail(request, opening_id):
     data = Opening.objects.get(pk = opening_id)
     return render_to_response('backend/openings/detail.html', {'data': data})
 
+@login_required
 def delete(request, opening_id):
     data = Opening.objects.get(pk = opening_id)
     data.delete()

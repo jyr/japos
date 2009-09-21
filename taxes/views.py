@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render_to_response
 from django.core.paginator import Paginator
 
@@ -6,10 +7,12 @@ from japos.base import Headers, JsonResponse
 
 templates = "backend/taxes/"
 
+@login_required
 def index(request):
     data = "Taxes"
     return Headers(render_to_response(templates+"index.html", {'data': data}))
 
+@login_required
 def list(request):
     search = request.POST.get('search')
     if(search):
@@ -34,6 +37,7 @@ def list(request):
 
     return Headers(render_to_response(templates+'list.html', {'data': pagination, 'range': paginator}))
 
+@login_required
 def delete(request, tax_id):
     data = Tax.objects.get(pk = tax_id)
     data.delete()
