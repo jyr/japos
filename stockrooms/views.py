@@ -18,8 +18,8 @@ def list(request):
     search = request.POST.get('search')
     if(search):
         data = StockRoom.objects.filter(
-            Q(sku__contains = search) |
-            Q(name__contains = search)
+            Q(product__name__contains = search) |
+            Q(product__barcode__contains = search)
         )
     else:
         data = StockRoom.objects.all()
