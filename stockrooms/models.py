@@ -19,4 +19,4 @@ class StockRoom(models.Model):
     date_modified = models.DateTimeField(auto_now = True)
     
     def __unicode__(self):
-        return "%s - %s" %(self.pos, self.product)
+        return "%s - %s" % (self.pos, unicode(self.product))

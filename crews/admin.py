@@ -1,9 +1,11 @@
-from japos.crews.models import Root, Admin, Auditor, Cashier, Salesman
+from japos.crews.models import Employee
 from django.contrib import admin
 
 class EmployeeAdmin(admin.ModelAdmin):
     pass
 
+admin.site.register(Employee, EmployeeAdmin)
+"""
 class RootAdmin(EmployeeAdmin):
     pass
 
@@ -24,3 +26,4 @@ admin.site.register(Admin, AdminAdmin)
 admin.site.register(Auditor, AuditorAdmin)
 admin.site.register(Cashier, CashierAdmin)
 admin.site.register(Salesman, SalesmanAdmin)
+"""

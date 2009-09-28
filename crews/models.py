@@ -20,7 +20,7 @@ class Employee(models.Model):
     def __unicode__(self):
         return self.user.username
 
-    class Meta:
+"""    class Meta:
         abstract = True
 
 class Root(Employee):    
@@ -36,4 +36,4 @@ class Cashier(Employee):
     group = models.ForeignKey(Group, default = 4, related_name = '%(class)s_group')
 
 class Salesman(Employee):
-    group = models.ForeignKey(Group, default = 5, related_name = '%(class)s_group')
+    group = models.ForeignKey(Group, default = 5, related_name = '%(class)s_group')"""
