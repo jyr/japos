@@ -1,0 +1,1 @@
+[{"pk": 1, "model": "pos.pos", "fields": {"sku": "BO1", "date_created": "2009-09-27 23:08:49", "name": "Boutique", "date_modified": "2009-09-27 23:08:49"}}, {"pk": 2, "model": "pos.pos", "fields": {"sku": "TER01", "date_created": "2009-09-27 23:09:02", "name": "Terraza", "date_modified": "2009-09-27 23:09:02"}}]

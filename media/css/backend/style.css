@@ -1,0 +1,61 @@
+/************ Shortcut Buttons ************/
+
+ .add-tab span,.add span {
+    background-image: url('/media/img/backend/Symbol-Add.png');
+}
+
+.openings span {
+    background-image: url('/media/img/backend/openings.png');
+}
+
+.discounts span {
+    background-image: url('/media/img/backend/discounts.png');
+}
+
+.taxes span {
+    background-image: url('/media/img/backend/taxes.png');
+}
+
+.crews span {
+    background-image: url('/media/img/backend/crews.png');
+}
+
+.paymentforms span {
+    background-image: url('/media/img/backend/paymentforms.png');
+}
+
+.payments span {
+    background-image: url('/media/img/backend/payments.png');
+}
+
+.coins span {
+    background-image: url('/media/img/backend/coins.png');
+}
+
+.goods span {
+    background-image: url('/media/img/backend/goods.png');
+}
+
+.transfers span {
+    background-image: url('/media/img/backend/transfers.png');
+}
+
+.pos span {
+    background-image: url('/media/img/backend/pos.png');
+}
+
+.cancellations span {
+    background-image: url('/media/img/backend/cancellations.png');
+}
+
+.stockrooms span {
+    background-image: url('/media/img/backend/stockrooms.png');
+}
+
+.sales span {
+    background-image: url('/media/img/backend/sales.png');
+}
+
+.logout span {
+    background-image: url('/media/img/backend/logout.png');
+}

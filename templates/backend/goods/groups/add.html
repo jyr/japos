@@ -1,0 +1,19 @@
+{% load i18n %}
+	{% block content-box-content %}	
+			<form action="/backend/goods/groups/add/" method="post" id="submit" title="{% trans "Add" %}">
+				<fieldset> <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
+					<p>
+						<b>{% trans "SKU:" %}</b> {{ form.sku }}
+						<b>{% trans "Name:" %}</b> {{ form.name }}
+					</p>
+					<br />
+					<p>
+						<input class="button" type="submit" value="Submit" />
+					</p>
+					
+				</fieldset>
+				
+				<div class="clear"></div><!-- End .clear -->
+				
+			</form>
+	{% endblock %}

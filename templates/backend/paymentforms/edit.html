@@ -1,0 +1,20 @@
+{% load i18n %}
+	{% block content-box-content %}
+			<form action="/backend/paymentforms/edit/{{object.id}}" method="post" id="submit" title="Edit">
+				
+				<fieldset> <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
+					<p>
+						<b>{% trans "Percentage:" %}</b> {{ form.percentage }} 
+						<b>{% trans "Name:" %}</b> {{ form.name }}
+					</p>
+					<br />
+					<p>
+						<input class="button" type="submit" value="Submit" />
+					</p>
+					
+				</fieldset>
+				
+				<div class="clear"></div><!-- End .clear -->
+				
+			</form>
+	{% endblock %}

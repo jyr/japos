@@ -1,0 +1,20 @@
+{% load i18n %}
+	{% block content-box-content %} 
+			<form action="/backend/discounts/add/" method="post" id="submit" title="{% trans "Add" %}">
+				
+				<fieldset> <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
+					<p>
+						<b>{% trans "Percentage:" %}</b> {{ form.percentage }} 
+						<b>{% trans "Type:" %}</b> {{ form.type }}
+					</p>
+					<br />
+					<p>
+						<input class="button" type="submit" value="Submit" />
+					</p>
+					
+				</fieldset>
+				
+				<div class="clear"></div><!-- End .clear -->
+				
+			</form>
+	{% endblock %}

@@ -1,0 +1,108 @@
+{% load i18n %}
+	{% block content-box-content %}	
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('.edit').one('click',function(){
+		        module = $(this).attr('rel');
+				id = $(this).attr('id');
+		        $('.facebox').one(jQuery.facebox({'ajax':'/backend/'+module+'/edit/'+id}));
+		    });
+		});
+	</script>
+		<div class="tab-content default-tab" id="tab1"> <!-- This is the target div. id must match the href of this div's tab -->
+			<div id="question" style="display:none;">
+				<div style="padding:10px">
+					<span>
+					<img class="gritter-image" src="/media/img/backend/Symbol-Exclamation.png">
+					<h3 style="color: #fff">{% trans "Are you Sure?" %}</h3>
+					<input type="button" value="{% trans "Yes" %}" id="yes">
+					<input type="button" value="{% trans "No" %}" id="no">
+					</span>
+				</div>
+			</div>
+			
+			<form action="/backend/pos/list/" method="post" id="search" rel="pos" title="Search">
+				<fieldset id="" class="">
+					<p>
+							<input class="text-input small-input"  type="text" value="" name="search" rel="pos"/> 
+							<!--span class="input-notification success png_bg">Successful message</span--> 
+							<br /><small>{% trans "Search" %}</small>
+					</p>
+				</fieldset>
+				<!--p><input type="submit" class="button" value="Continue &rarr;"></p-->
+			</form>
+			<br />
+			<table>
+				
+				<thead>
+					<tr>
+					   <th><input class="check-all" type="checkbox" id="check-all"/></th>
+					   <th>{% trans "SKU"%}</th>
+					   <th>{% trans "NAME" %}</th>
+					   <th>{% trans "Actions" %}</th>
+					</tr>
+					
+				</thead>
+			 
+				<tfoot>
+					<tr>
+						<td colspan="6">
+							<div class="bulk-actions align-left">
+								<select name="dropdown" class="dropdown">
+									<option value="">{% trans "Choose an action..." %}</option>
+									<!--option value="detail">{% trans "Detail" %}</option-->
+									<option value="remove">{% trans "Remove" %}</option>
+								</select>
+								<a class="button apply" href="javascript:void(0);" rel="pos">{% trans "Apply to selected" %}</a>
+							</div>
+							
+							<div class="pagination">
+								<span class="step-links">
+									{% if data.has_previous %}
+										<a class="page" href="javascript:void(0);" rel="/backend/pos/list/?page={{ data.previous_page_number }}" title="Previous Page">
+											&laquo; Previous</a>
+									{% endif %}
+									{% for page_number in range.page_range %}
+										{% ifnotequal page_number data.number %}
+									<span class="number">
+										<a href="javascript:void(0);" rel="/backend/pos/list/?page={{ page_number }}" class="number page" title="{{ page_number }}">
+											{{ page_number }}</a> 
+									</span>
+										{% else %}
+										<span class="current number">
+											<a href="javascript:void(0);" rel="/backend/pos/list/?page={{ data.number }}" class="number current page" title="{{ data.number }}">
+												{{ data.number }}</a> 
+										</span>
+										{% endifnotequal %}
+									{% endfor %}
+									{% if data.has_next %}
+										<a class="page" href="javascript:void(0);" rel="/backend/pos/list/?page={{ data.next_page_number }}" title="Next Page">
+											Next &raquo;</a>
+									{% endif%}
+								</span>
+							</div> <!-- End .pagination -->
+							<div class="clear"></div>
+						</td>
+					</tr>
+				</tfoot>
+			 
+				<tbody>
+					{% for pos in data.object_list %}
+					<tr
+							<td><input type="checkbox" name="check[]" value="{{pos.pk}}"/></td>
+							<td>{{pos.sku}}</td>
+							<td><a class="manage-comments" href="#messages" rel="modal">{{pos.name}}</a></td>
+							<td>
+								<!-- Icons -->
+							 	<a rel="pos" title="edit"  class="edit" href="javascript:void(0);" id="{{pos.pk}}">
+									<img src="/media/resources/images/icons/pencil.png" alt="Detail" /></a>
+							 	<a rel="pos" href="javascript:void(0);" title="Delete" class="delete" id="{{pos.pk}}">
+									<img src="/media/resources/images/icons/cross.png" alt="Delete" /></a> 
+							</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+				
+			</table>
+		</div> <!-- End #tab1 -->
+	{% endblock %}

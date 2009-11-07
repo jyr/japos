@@ -1,0 +1,111 @@
+{% load i18n %}
+	{% block content-box-content %}
+		<div class="tab-content" id="tab2">
+			<a href="javascript:void(0);" class="exit" alt="close" rel="openings">Close</a><br />
+			<h3>{% trans "Details" %}</h3>
+			<table border="0" cellspacing="5" cellpadding="5">
+				<thead>
+				<tr>
+					<th>id<th>
+					<th>Initial Fund</th>
+					<th>Exchange Rate</th>
+					<th>Date Created</th>
+					<th>Date Modified</th>
+				</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<th scope="row">a<th>
+						<td>a</td>
+					</tr>
+				</tfoot>
+				<tbody>
+					<tr class="odd">
+						<th scope="row">{{data.pk}}<th>
+						<td>{{data.initial_fund}}</td>
+						<td>{{data.exchange_rate}}</td>
+						<td>{{data.date_created}}</td>
+						<td>{{data.date_modified}}</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<h3>{% trans "Point Of Sale" %}</h3>
+			<table border="0" cellspacing="5" cellpadding="5">
+				<thead>
+				<tr>
+					<th>SKU<th>
+					<th>NAME</th>
+					<th>Date Created</th>
+					<th>Date Modified</th>
+				</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<th scope="row">a<th>
+						<td>a</td>
+					</tr>
+				</tfoot>
+				<tbody>
+					<tr class="odd">
+						<th scope="row">{{data.pos.sku}}<th>
+						<td>{{data.pos.name}}</td>
+						<td>{{data.pos.date_created}}</td>
+						<td>{{data.pos.date_modified}}</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<h3>{% trans "Auditor" %}</h3>
+			<table border="0" cellspacing="5" cellpadding="5">
+				<thead>
+				<tr>
+					<th>number<th>
+					<th>name</th>
+					<th>Date Created</th>
+					<th>Date Modified</th>
+				</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<th scope="row">a<th>
+						<td>a</td>
+					</tr>
+				</tfoot>
+				<tbody>
+					<tr class="odd">
+						<th scope="row">{{data.auditor.number}}<th>
+						<td>{{data.auditor.user.first_name}} {{data.auditor.user.last_name}}</td>
+						<td>{{data.auditor.date_created}}</td>
+						<td>{{data.auditor.date_modified}}</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<h3>{% trans "Cashier" %}</h3>
+			<table border="0" cellspacing="5" cellpadding="5">
+				<thead>
+				<tr>
+					<th>number<th>
+					<th>name</th>
+					<th>Date Created</th>
+					<th>Date Modified</th>
+				</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<th scope="row">a<th>
+						<td>a</td>
+					</tr>
+				</tfoot>
+				<tbody>
+					<tr class="odd">
+						<th scope="row">{{data.cashier.number}}<th>
+						<td>{{data.cashier.user.first_name}} {{data.cashier.user.last_name}}</td>
+						<td>{{data.cashier.date_created}}</td>
+						<td>{{data.cashier.date_modified}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div> <!-- End #tab2 -->
+	{% endblock %}

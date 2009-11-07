@@ -1,0 +1,21 @@
+{% load i18n %}
+	{% block content-box-content %}
+			<form action="{#% url pos.views.get id %#}/backend/pos/edit/{{object.id}}" method="post" id="submit" title="Edit">
+				
+				<fieldset> <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
+					<p>
+						{{ form.initials.errors }}
+						<b>{% trans "SKU:" %}</b> {{ form.sku }} 
+						<b>{% trans "Name:" %}</b> {{ form.name }}
+					</p>
+					<br />
+					<p>
+						<input class="button" type="submit" value="Submit" />
+					</p>
+					
+				</fieldset>
+				
+				<div class="clear"></div><!-- End .clear -->
+				
+			</form>
+	{% endblock %}

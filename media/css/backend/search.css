@@ -1,0 +1,24 @@
+span.sbox_l  {
+	background: white url('srch_l.gif') ¬
+		no-repeat top left;
+	float: left;
+	width: 19px; height: 19px;
+}
+
+span.sbox_r  {
+	background: white url('srch_r.gif') ¬
+		no-repeat top left;
+	float: left;
+	width: 19px; height: 19px;
+}
+
+span.sbox input {
+	background: white url('srch_bg.gif') ¬
+		repeat-x top left;
+	float: left;
+	border: 0;
+	height: 19px; width: 142px;
+	padding: 3px;
+	font: 11px/13px arial;
+	color: #000;
+}
