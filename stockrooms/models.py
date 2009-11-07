@@ -7,7 +7,6 @@ from japos.discounts.models import Discount
 from japos.taxes.models import Tax
 
 class StockRoom(models.Model):
-    #sku = models.CharField(max_length = 10, unique = True, blank = False, null = True, verbose_name = _("SKU"))
     pos = models.ForeignKey(Pos, blank = False, null = True, verbose_name = _('Point of Sale'))
     barcode = models.CharField(max_length = 45, unique = True, verbose_name = _('Barcode'))
     product = models.ForeignKey(Product, blank = False, null = True, verbose_name = _('Product'))

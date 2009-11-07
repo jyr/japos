@@ -12,7 +12,7 @@ class ShoppingCart(models.Model):
     date_modified = models.DateTimeField(auto_now = True)
     
     def __unicode__(self):
-        return self.sku
+        return "%s" % (unicode(self.stock_room))
 
 class Sale(models.Model):
     sku = models.CharField(max_length = 10, unique = True, blank = False, null = True, verbose_name = _("SKU"))
@@ -21,4 +21,7 @@ class Sale(models.Model):
     discount = models.ForeignKey(Discount, blank = True, null = True)
     date_created = models.DateTimeField(auto_now_add = True)
     date_modified = models.DateTimeField(auto_now = True)
+    
+    def __unicode__(self):
+        return "TICKET %s" %self.sku
     
