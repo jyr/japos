@@ -29,7 +29,7 @@ def list(request):
         )
     else:
         data = Opening.objects.all()
-    paginator = Paginator(data, 2)
+    paginator = Paginator(data, 300)
     
     try:
         page = int(request.GET.get('page','1'))
