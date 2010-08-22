@@ -1,0 +1,1 @@
+[{"pk": 1, "model": "taxes.tax", "fields": {"is_enabled": true, "date_modified": "2010-08-23 00:32:03", "is_default": false, "date_created": "2010-08-23 00:32:03", "percentage": "10.000", "initials": "IVA"}}]
