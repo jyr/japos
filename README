@@ -1,0 +1,5 @@
+JAPOS (Just Another Point Of Sale) - 2009
+
+Is a fork the other POS and inspired by the fantastic checkout app 
+(http://checkoutapp.com/) for MAC. JAPOS is written, of course with
+python/django.
